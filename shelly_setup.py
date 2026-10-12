@@ -1,6 +1,9 @@
+import subprocess
+
 from scan_ssids import scan_ssids
 
-SSID_PREFIX = ["shellyplugs"]
+SSID_PREFIX = ["shellyplug-s"]
+TAGET_MAC_ADDRESS = "00:1A:22:33:44:55"  # Replace with the actual MAC address of your Shelly smart plug
 
 if __name__ == "__main__":
     ssids = scan_ssids()
@@ -14,3 +17,17 @@ if __name__ == "__main__":
     print("Shelly smart plugs found:")
     for ssid in shelly_ssids:
         print(f"- {ssid}")
+
+    print("\nSearching for the MAC address of the Shelly smart plug...")
+    for ssid in shelly_ssids:
+        # search the mac address of the Shelly smart plug
+        result = subprocess.run(
+            ["netsh", "wlan", "show", "networks", "mode=bssid"],
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+
+        mac_address = result.stdout.splitlines()
+        print(f"MAC address for {ssid}: {mac_address}")
+            

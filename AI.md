@@ -44,3 +44,23 @@ This file records AI-assisted prompts and the changes made to the repository.
 
 - Marked `scan_ssids` as the public importable definition in `scan_ssids.py`.
 - Added an import-and-call example to `README.md`.
+
+### Prompt 5
+
+> Searching for the MAC address of the Shelly smart plug... `AttributeError: module 'asyncio.subprocess' has no attribute 'run'`
+
+### Changes made
+
+- Replaced the incorrect `asyncio.subprocess` import in `shelly_setup.py` with Python's synchronous `subprocess` module.
+- Corrected the Windows command from `network` to `networks`.
+
+### Prompt 6
+
+> The script found Shelly SSIDs, then failed with the old `asyncio.subprocess` error and printed the complete WLAN scan as the MAC address.
+
+### Changes made
+
+- Added `find_shelly_bssids()` to parse only Shelly SSIDs and their matching BSSID values.
+- Changed the script to run one WLAN scan and print concise SSID-to-BSSID results.
+- Removed the unused placeholder MAC address.
+- Reverted that refactor at the user's request; the original script structure was preserved.
