@@ -166,6 +166,7 @@ def main() -> None:
             {
                 "name": arguments.name,
                 "led_power_disable": 1,
+                "led_status_disable": 1,
                 "mqtt_enable": 1,
                 "mqtt_server": MQTT_SERVER,
                 "mqtt_id": arguments.name,
@@ -223,5 +224,4 @@ def main() -> None:
 if __name__ == "__main__":
     main()
     
-
 

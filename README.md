@@ -55,6 +55,8 @@ python shelly_setup.py --name "deketele-dante-Outlet1"
 
 Cloud is disabled by default. Enable it explicitly with `--cloud` or disable it with `--no-cloud`.
 
+The setup disables both the power LED and the Wi-Fi status LED.
+
 The Wi-Fi helpers connect by SSID and always disconnect afterward:
 
 ```python
